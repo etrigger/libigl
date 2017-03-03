@@ -206,6 +206,12 @@ IGL_INLINE void igl::viewer::ViewerCore::draw(
     if (show_vertid)
     {
       textrenderer.BeginDraw(view*model, proj, viewport, object_scale);
+
+	///set the per-vertex norm as zero if it's not set properly, e.g. did not call viewer.data.set_mesh(V, F);
+	  if (data.V_normals.size() == 0) {
+	  	data.V_normals.setZero(data.V.rows(), data.V.cols());
+	  }
+
       for (int i=0; i<data.V.rows(); ++i)
         textrenderer.DrawText(data.V.row(i),data.V_normals.row(i),to_string(i));
       textrenderer.EndDraw();
