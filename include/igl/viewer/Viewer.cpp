@@ -205,7 +205,7 @@ namespace viewer
     ngui->setFixedSize(Eigen::Vector2i(60,20));
 
     // Create nanogui widgets
-    nanogui::Window *window = ngui->addWindow(Eigen::Vector2i(10,10),"libIGL-Viewer");
+    nanogui::Window *window = ngui->addWindow(Eigen::Vector2i(10,10),"Viewer-Menu");
 
     // ---------------------- LOADING ----------------------
 
@@ -891,11 +891,11 @@ namespace viewer
     {
       GLFWmonitor *monitor = glfwGetPrimaryMonitor();
       const GLFWvidmode *mode = glfwGetVideoMode(monitor);
-      window = glfwCreateWindow(mode->width,mode->height,"libigl viewer",monitor,nullptr);
+      window = glfwCreateWindow(mode->width,mode->height,"IGraph viewer",monitor,nullptr);
     }
     else
     {
-      window = glfwCreateWindow(1280,800,"libigl viewer",nullptr,nullptr);
+      window = glfwCreateWindow(1280,800,"IGraph viewer",nullptr,nullptr);
     }
 
     if (!window)
