@@ -988,7 +988,8 @@ namespace viewer
         const double min_duration = 1000000./core.animation_max_fps;
         if(duration<min_duration)
         {
-          std::this_thread::sleep_for(std::chrono::microseconds((int)(min_duration-duration)));
+          //std::this_thread::sleep_for(std::chrono::microseconds((int)(min_duration-duration)));
+            std::this_thread::sleep_for(std::chrono::seconds(1));
         }
       }
       else
