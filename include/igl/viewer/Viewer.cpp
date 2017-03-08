@@ -891,11 +891,11 @@ namespace viewer
     {
       GLFWmonitor *monitor = glfwGetPrimaryMonitor();
       const GLFWvidmode *mode = glfwGetVideoMode(monitor);
-      window = glfwCreateWindow(mode->width,mode->height,"libigl viewer",monitor,nullptr);
+      window = glfwCreateWindow(mode->width,mode->height,"IGraph viewer",monitor,nullptr);
     }
     else
     {
-      window = glfwCreateWindow(1280,800,"libigl viewer",nullptr,nullptr);
+      window = glfwCreateWindow(1280,800,"Viewer Menu",nullptr,nullptr);
     }
 
     if (!window)
