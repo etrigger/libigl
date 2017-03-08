@@ -895,6 +895,7 @@ namespace viewer
     }
     else
     {
+
       window = glfwCreateWindow(1280,800,"IGraph viewer",nullptr,nullptr);
     }
 
