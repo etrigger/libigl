@@ -85,7 +85,7 @@ IGL_INLINE void igl::viewer::TextRenderer::DrawText(
   Eigen::Vector3f coord = igl::project(Eigen::Vector3f(pos(0), pos(1), pos(2)),
       view_matrix, proj_matrix, viewport);
 
-  nvgFontSize(ctx, 16*mPixelRatio);
+  nvgFontSize(ctx, 16*mPixelRatio *10);
   nvgFontFace(ctx, "sans");
   nvgTextAlign(ctx, NVG_ALIGN_LEFT | NVG_ALIGN_MIDDLE);
   nvgFillColor(ctx, nvgRGBA(10,10,250,255));

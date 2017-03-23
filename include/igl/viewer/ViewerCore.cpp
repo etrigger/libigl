@@ -183,6 +183,8 @@ IGL_INLINE void igl::viewer::ViewerCore::draw(
 
   if (data.V.rows()>0)
   {
+    
+      
     // Render fill
     if (show_faces)
     {
@@ -232,6 +234,19 @@ IGL_INLINE void igl::viewer::ViewerCore::draw(
       }
       textrenderer.EndDraw();
     }
+    
+      
+    //Render frame ID
+    if(show_frameid){
+        
+        textrenderer.BeginDraw(view*model, proj, viewport, object_scale);
+        Eigen::MatrixXd pos(3,1), norm(3,1);
+        pos << 1, 1, 1;
+        norm << 0, 0, 0;
+	textrenderer.DrawText(pos, norm, std::to_string(frame_id));
+        textrenderer.EndDraw();
+      }
+    
 #endif
   }
 
@@ -432,12 +447,17 @@ IGL_INLINE igl::viewer::ViewerCore::ViewerCore()
   show_faceid = false;
   show_texture = false;
   depth_test = true;
+  show_frameid = true;
+  
 
   // Default point size / line width
   point_size = 30;
   line_width = 0.5f;
   is_animating = false;
+  is_playback_mode = false;
   animation_max_fps = 30.;
+  
+  frame_id = 0;
 }
 
 IGL_INLINE void igl::viewer::ViewerCore::init()

@@ -142,14 +142,19 @@ public:
   bool show_faceid;
   bool invert_normals;
   bool depth_test;
+  bool show_frameid;
 
   // Point size / line width
   float point_size;
   float line_width;
 
+  //the frame id
+  std::size_t frame_id;
+
   // Animation
   bool is_animating;
   double animation_max_fps;
+    bool is_playback_mode;
 
   // Caches the two-norm between the min/max point of the bounding box
   float object_scale;

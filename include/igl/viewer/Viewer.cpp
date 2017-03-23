@@ -495,6 +495,7 @@ namespace viewer
       case 'a':
       {
         core.is_animating = !core.is_animating;
+        core.is_playback_mode = !core.is_playback_mode;
         return true;
       }
       case 'F':
@@ -989,7 +990,9 @@ namespace viewer
         if(duration<min_duration)
         {
           //std::this_thread::sleep_for(std::chrono::microseconds((int)(min_duration-duration)));
-            std::this_thread::sleep_for(std::chrono::seconds(1));
+            if(!core.is_playback_mode){
+                std::this_thread::sleep_for(std::chrono::seconds(1));
+            }
         }
       }
       else
